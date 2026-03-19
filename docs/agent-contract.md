@@ -2,6 +2,17 @@
 
 This document is the shared operating contract for all coding agents that work in a repo adopting this template.
 
+## Plain-Language Model
+
+To avoid confusion:
+
+- The agent session is the worker.
+- The harness is the environment around the worker.
+- Scripts are tools inside that environment.
+- CI reruns the same checks after the local session.
+
+The harness is bigger than any single shell command.
+
 ## Repository Role
 
 - The repository is the system of record.
@@ -39,6 +50,7 @@ Tasks missing these fields should be clarified or reduced before implementation.
 - Validation should report failures by stage, not as one opaque log.
 - Standard validation slots are `lint`, `typecheck`, `test`, `build`, `smoke`, and `observe`.
 - Application repos may omit `observe`, but the slot should remain reserved.
+- A shell script is only one way to invoke validation. The contract is the loop, not the script.
 
 ## Feedback Loop Levels
 
@@ -71,3 +83,4 @@ Tasks missing these fields should be clarified or reduced before implementation.
 - Final handoff should name the validation commands run.
 - If validation was skipped, say so explicitly and state why.
 - Record known follow-up work instead of hiding it in chat history.
+- Review comments should be treated as a new scoped task, then run through the same validation loop.

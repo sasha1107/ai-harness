@@ -2,6 +2,12 @@
 
 Validation is the core feedback loop of the harness.
 
+## First Principle
+
+The important thing is not the shell script itself. The important thing is that the repo has one repeatable way to ask, "Did this change actually work?"
+
+In many repos that entrypoint will be a shell script such as `./scripts/validate.sh`. In others it could be `make validate`, `just validate`, `npm run validate`, or another command. The harness pattern stays the same.
+
 ## Validation Slots
 
 Application repos that adopt this template should map these slots to concrete commands:
@@ -33,6 +39,15 @@ Suggested order:
 - Stop at the first failing stage when diagnosing a new issue.
 - Summarize errors by stage and file, not by dumping raw logs.
 - Fix the narrowest cause before rerunning the full sequence.
+
+## Review Failures Are Also Inputs
+
+Review comments and CI failures should be treated the same way as test failures:
+
+- identify the scoped issue
+- make the smallest fix
+- rerun validation
+- hand off with the updated result
 
 ## Three-Level Feedback Model
 

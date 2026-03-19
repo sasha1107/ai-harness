@@ -4,6 +4,7 @@ Use this file as the entrypoint to the repo knowledge base.
 
 ## Core Documents
 
+- [`how-it-works.md`](how-it-works.md): plain-language explanation of the harness model
 - [`agent-contract.md`](agent-contract.md): shared operating contract for all agents
 - [`workflow.md`](workflow.md): task slicing, plans, PR shape, review loop
 - [`testing.md`](testing.md): validation loop design and command slot model
@@ -32,3 +33,4 @@ Use this file as the entrypoint to the repo knowledge base.
 - [`../templates/architecture-checklist.template.md`](../templates/architecture-checklist.template.md): adoption checklist
 - [`../examples/backend-structure.md`](../examples/backend-structure.md): backend example
 - [`../examples/webapp-structure.md`](../examples/webapp-structure.md): web app example
+- [`../.github/workflows/validate.yml`](../.github/workflows/validate.yml): CI draft for harness validation

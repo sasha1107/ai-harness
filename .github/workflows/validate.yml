@@ -1,0 +1,21 @@
+name: Validate Harness
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Ensure scripts are executable
+        run: chmod +x scripts/validate.sh scripts/check-structure.sh scripts/check-docs.sh scripts/check-drift.sh
+
+      - name: Run harness validation
+        run: ./scripts/validate.sh

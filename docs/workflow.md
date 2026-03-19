@@ -2,6 +2,13 @@
 
 This repo uses harness engineering as an operating workflow, not as a prompt-writing trick.
 
+## Who Does What
+
+- Human: sets goal, scope, and definition of done
+- Agent session: reads, edits, runs checks, and interprets failures
+- Repo harness: supplies docs, scripts, tests, structure rules, and CI
+- CI: reruns the shared validation after the local session
+
 ## Default Loop
 
 1. Read the relevant docs and active plan.
@@ -43,6 +50,17 @@ Review should prioritize:
 - Architecture drift
 - Scope creep
 - Stale documentation
+
+## Review To Fix Loop
+
+Code review fits naturally into the same harness loop:
+
+1. Agent opens a small PR.
+2. A human or another agent leaves review comments.
+3. Those comments become the next task input.
+4. The agent fixes the scoped issues.
+5. The agent reruns validation.
+6. CI confirms the result.
 
 ## Escalation Rule
 
